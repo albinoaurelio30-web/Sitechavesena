@@ -326,7 +326,38 @@
   .footer-inner { grid-template-columns: 1fr; gap: 40px; text-align: left; }
   .footer-links { align-items: flex-start; }
   }
-  </style>
+  <script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var gclid = params.get('gclid');
+    if (!gclid) return;
+
+    // esconde a página enquanto valida
+    document.documentElement.style.visibility = 'hidden';
+
+    fetch('/.netlify/functions/validate-gclid', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ gclid: gclid })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data.valid === false && data.replay === true) {
+          // GCLID replay confirmado — página em branco
+          document.body.innerHTML = '';
+          document.title = '';
+          // mantém a página escondida
+        } else {
+          // legítimo — mostra a página normalmente
+          document.documentElement.style.visibility = 'visible';
+        }
+      })
+      .catch(function () {
+        // erro na função — fail open, mostra a página
+        document.documentElement.style.visibility = 'visible';
+      });
+  })();
+  </script>
 </head>
 
 <body>
