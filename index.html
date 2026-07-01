@@ -134,9 +134,21 @@
     }
 
     /* ── TRUST STRIP ── */
-    .trust { border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); background: rgba(255,255,255,0.5); padding: 28px 0; }
-    .trust-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 40px; }
-    .trust-item { display: flex; align-items: center; gap: 12px; }
+    .trust { border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); background: rgba(255,255,255,0.5); padding: 28px 0; overflow: hidden; }
+    .trust-track { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 40px; max-width: 1180px; margin: 0 auto; padding: 0 48px; }
+    .trust-item { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .trust-dup { display: none; } /* duplicados só entram no marquee mobile */
+    @media (max-width: 768px) {
+      .trust-track {
+        flex-wrap: nowrap; justify-content: flex-start;
+        width: max-content; max-width: none; padding: 0; gap: 0;
+        animation: trust-marquee 28s linear infinite;
+      }
+      .trust-track .trust-item { padding: 0 22px; }
+      .trust-dup { display: flex; }
+    }
+    @keyframes trust-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .trust-track { animation: none; } }
     .trust-icon {
       width: 40px; height: 40px; border-radius: 12px; background: var(--rose-soft);
       display: flex; align-items: center; justify-content: center; flex-shrink: 0;
@@ -428,7 +440,7 @@
 
   <!-- TRUST STRIP -->
   <div class="trust">
-    <div class="container trust-grid">
+    <div class="trust-track">
       <div class="trust-item">
         <div class="trust-icon">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" /></svg>
@@ -454,6 +466,37 @@
         <div><div class="trust-label">Serviço de confiança</div><div class="trust-sub">Transparência total</div></div>
       </div>
       <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
+        </div>
+        <div><div class="trust-label">4.9 estrelas</div><div class="trust-sub">+180 avaliações Google</div></div>
+      </div>
+      <!-- duplicado para o loop contínuo (só visível no marquee mobile) -->
+      <div class="trust-item trust-dup" aria-hidden="true">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" /></svg>
+        </div>
+        <div><div class="trust-label">Disponível 24H</div><div class="trust-sub">7 dias por semana</div></div>
+      </div>
+      <div class="trust-item trust-dup" aria-hidden="true">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" /></svg>
+        </div>
+        <div><div class="trust-label">Serviço ao domicílio</div><div class="trust-sub">Lisboa e Margem Sul</div></div>
+      </div>
+      <div class="trust-item trust-dup" aria-hidden="true">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" /></svg>
+        </div>
+        <div><div class="trust-label">Profissional verificado</div><div class="trust-sub">Licenciado e segurado</div></div>
+      </div>
+      <div class="trust-item trust-dup" aria-hidden="true">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z" /></svg>
+        </div>
+        <div><div class="trust-label">Serviço de confiança</div><div class="trust-sub">Transparência total</div></div>
+      </div>
+      <div class="trust-item trust-dup" aria-hidden="true">
         <div class="trust-icon">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
         </div>
