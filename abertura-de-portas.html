@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-W6KKCSLQ');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abertura de Portas 24H em Lisboa — Chaveiro Sena</title>
+  <meta name="description" content="Abertura de portas urgente em Lisboa, arredores e Margem Sul. Orçamento grátis por telefone, disponível 24 horas. Método adequado a cada fechadura, pagamento só depois do trabalho.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1A1D1F;
+      --teal: #5E7C7B;
+      --teal-dark: #4A6463;
+      --cloud: #F4F5F7;
+      --rose: #E11D48;
+      --rose-soft: #FCE7EC;
+      --white: #FFFFFF;
+      --muted: #6B6F73;
+      --muted-2: #8A8E92;
+      --border: rgba(16,24,40,0.08);
+      --shadow-card: 0 10px 40px -12px rgba(16,24,40,0.14);
+      --shadow-soft: 0 4px 24px -8px rgba(16,24,40,0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: var(--cloud); color: var(--ink);
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── UTILS ── */
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    @media (min-width: 640px) { .container { padding: 0 32px; } }
+    @media (min-width: 1024px) { .container { padding: 0 48px; } }
+
+    .eyebrow { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose); }
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px; width: fit-content;
+      background: var(--rose-soft); color: var(--rose); border-radius: 999px;
+      font-size: 12px; font-weight: 700; padding: 6px 16px; letter-spacing: 0.02em;
+    }
+    .pill svg { width: 14px; height: 14px; }
+
+    /* ── NAVBAR ── */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(244,245,247,0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 74px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand-text { display: flex; flex-direction: column; line-height: 1; }
+    .brand-text .b1 { font-weight: 800; font-size: 18px; letter-spacing: 0.06em; color: var(--ink); }
+    .brand-text .b2 { font-weight: 600; font-size: 11px; letter-spacing: 0.34em; color: var(--muted); }
+    .nav-links { display: none; align-items: center; gap: 34px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    .btn-nav { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: #fff; font-weight: 600; font-size: 14px; border-radius: 10px; padding: 11px 20px; text-decoration: none; transition: transform 0.2s; }
+    .btn-nav:hover { transform: translateY(-2px); }
+    .btn-nav svg { width: 15px; height: 15px; }
+    @media (min-width: 900px) { .nav-links { display: flex; } }
+
+    /* ── BUTTONS ── */
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--ink); color: #fff; font-weight: 600; font-size: 15px; border: none; border-radius: 12px; padding: 15px 28px; cursor: pointer; text-decoration: none; transition: transform 0.2s; }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-primary svg { width: 18px; height: 18px; }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--ink); font-weight: 600; font-size: 15px; border: 1px solid rgba(0,0,0,0.15); border-radius: 12px; padding: 15px 28px; text-decoration: none; cursor: pointer; transition: all 0.2s; }
+    .btn-ghost:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb { padding-top: 32px; font-size: 13px; color: var(--muted); }
+    .breadcrumb a { color: var(--muted); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--rose); }
+    .breadcrumb span { color: var(--ink); font-weight: 600; }
+    .breadcrumb .sep { margin: 0 8px; color: var(--muted-2); }
+
+    /* ── HERO (centered) ── */
+    .hero { padding: 40px 0 64px; position: relative; overflow: hidden; text-align: center; }
+    .plus { position: absolute; color: rgba(94,124,123,0.35); pointer-events: none; }
+    .hero-inner { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+    .hero .pill { margin-bottom: 22px; }
+    .hero h1 { font-size: clamp(40px, 6vw, 64px); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); }
+    .hero h1 em { color: var(--rose); font-style: normal; display: block; }
+    .hero-sub { font-size: 17px; color: var(--muted); max-width: 540px; margin: 22px auto 0; }
+    .hero-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 34px; }
+    .hero-stat { margin-top: 44px; }
+    .hero-stat-num { font-size: 30px; font-weight: 800; color: var(--rose); line-height: 1; }
+    .hero-stat-label { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+    /* ── SECTION COMMONS ── */
+    section.block { padding: 88px 0; }
+    .section-header { max-width: 640px; margin: 0 auto 56px; text-align: center; }
+    .section-header .eyebrow { margin-bottom: 14px; }
+    .section-header h2 { font-size: clamp(30px, 4.2vw, 46px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; color: var(--ink); margin-bottom: 16px; }
+    .section-header p { font-size: 17px; color: var(--muted); }
+
+    /* ── STEPS (4) ── */
+    .how { background: #fff; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; max-width: 1000px; margin: 0 auto; }
+    .step { text-align: center; }
+    .step-num { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--rose); background: var(--rose-soft); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; font-weight: 800; color: var(--rose); }
+    .step h3 { font-size: 19px; font-weight: 700; margin-bottom: 10px; color: var(--ink); }
+    .step p { font-size: 14px; color: var(--muted); }
+    @media (max-width: 860px) { .steps { grid-template-columns: repeat(2, 1fr); gap: 40px 24px; } }
+    @media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
+
+    /* ── SERVICE CARDS ── */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; }
+    .service-card { background: #fff; border: 1px solid var(--border); border-radius: 24px; padding: 30px 28px; box-shadow: var(--shadow-soft); transition: transform 0.3s, box-shadow 0.3s; }
+    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-card); }
+    .service-icon { width: 54px; height: 54px; background: var(--rose-soft); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 22px; }
+    .service-icon svg { width: 26px; height: 26px; color: var(--rose); }
+    .service-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: var(--ink); }
+    .service-card p { font-size: 14.5px; color: var(--muted); line-height: 1.6; }
+
+    /* ── FAQ ── */
+    .faq { background: #fff; }
+    .faq-list { max-width: 780px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q { width: 100%; background: none; border: none; color: var(--ink); text-align: left; padding: 24px 0; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: inherit; }
+    .faq-q svg { width: 20px; height: 20px; color: var(--rose); flex-shrink: 0; transition: transform 0.3s; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.2s; font-size: 15px; color: var(--muted); line-height: 1.7; }
+    .faq-item.open .faq-a { max-height: 320px; padding-bottom: 22px; }
+    .faq-item.open .faq-q svg { transform: rotate(45deg); }
+    .faq-more { text-align: center; margin-top: 40px; }
+    .btn-outline-rose { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--rose); color: var(--rose); background: transparent; font-weight: 700; font-size: 14px; border-radius: 999px; padding: 12px 28px; text-decoration: none; transition: all 0.2s; }
+    .btn-outline-rose:hover { background: var(--rose); color: #fff; }
+
+    /* ── CTA BAND (ink) ── */
+    .cta-band { padding: 40px 0 88px; }
+    .cta-inner { background: var(--ink); border-radius: 36px; padding: 56px 44px; color: #fff; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px; max-width: 1100px; margin: 0 auto; }
+    .cta-inner h2 { font-size: clamp(28px, 3.5vw, 40px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+    .cta-inner p { color: rgba(255,255,255,0.7); font-size: 16px; margin-top: 10px; }
+    .btn-white { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: var(--ink); font-weight: 700; font-size: 16px; border-radius: 12px; padding: 17px 32px; text-decoration: none; transition: transform 0.2s; white-space: nowrap; }
+    .btn-white:hover { transform: translateY(-2px); }
+    .btn-white svg { width: 18px; height: 18px; color: var(--rose); }
+
+    /* ── FOOTER (teal) ── */
+    footer { background: var(--teal); color: #fff; padding: 64px 0 32px; }
+    .footer-inner { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 40px; }
+    .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+    .footer-logo .b1 { font-weight: 800; font-size: 18px; letter-spacing: 0.06em; color: #fff; }
+    .footer-logo .b2 { font-weight: 600; font-size: 11px; letter-spacing: 0.34em; color: rgba(255,255,255,0.7); }
+    .footer-desc { color: rgba(255,255,255,0.75); font-size: 15px; line-height: 1.7; max-width: 300px; }
+    .footer-col-title { font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 20px; color: rgba(255,255,255,0.9); }
+    .footer-links { display: flex; flex-direction: column; gap: 13px; list-style: none; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-contacts { display: flex; flex-direction: column; gap: 12px; font-size: 14px; color: rgba(255,255,255,0.8); }
+    .footer-bottom { margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.15); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: rgba(255,255,255,0.65); }
+    .footer-bottom a { color: rgba(255,255,255,0.65); text-decoration: none; }
+    .footer-bottom a:hover { color: #fff; }
+    @media (max-width: 860px) { .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; } }
+    @media (max-width: 520px) { .footer-inner { grid-template-columns: 1fr; } }
+
+    /* ── WHATSAPP FLOAT ── */
+    .whatsapp-btn { position: fixed; bottom: 28px; right: 28px; z-index: 200; width: 60px; height: 60px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 28px rgba(37,211,102,0.4); text-decoration: none; transition: transform 0.2s; }
+    .whatsapp-btn:hover { transform: scale(1.08); }
+    .whatsapp-btn svg { width: 30px; height: 30px; color: #fff; }
+  </style>
+  <script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var gclid = params.get('gclid');
+    if (!gclid) return;
+
+    // esconde a página enquanto valida
+    document.documentElement.style.visibility = 'hidden';
+
+    fetch('/.netlify/functions/validate-gclid', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ gclid: gclid })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data.valid === false && data.replay === true) {
+          document.body.innerHTML = '';
+          document.title = '';
+        } else {
+          document.documentElement.style.visibility = 'visible';
+        }
+      })
+      .catch(function () {
+        document.documentElement.style.visibility = 'visible';
+      });
+  })();
+  </script>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <svg viewBox="0 0 50 40" width="44" height="35" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 5,24 L 25,6 L 45,24 V 38 H 5 Z" fill="none" stroke="#5E7C7B" stroke-width="2.5" stroke-linejoin="round" />
+          <g transform="translate(10, 24)">
+            <rect x="4" y="-2" width="28" height="4" fill="#E11D48" rx="1" />
+            <rect x="22" y="2" width="3" height="5" fill="#E11D48" rx="0.5" />
+            <rect x="27" y="2" width="3" height="3" fill="#E11D48" rx="0.5" />
+          </g>
+          <circle cx="14" cy="24" r="9" fill="#E11D48" />
+          <circle cx="14" cy="24" r="6.5" fill="#1A1D1F" />
+          <text x="14" y="26.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="8" fill="#FFF" text-anchor="middle" letter-spacing="0.3">24H</text>
+        </svg>
+        <span class="brand-text">
+          <span class="b1">CHAVEIRO</span>
+          <span class="b2">SENA</span>
+        </span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="#como">Como funciona</a></li>
+        <li><a href="#tipos">Tipos de porta</a></li>
+        <li><a href="#faq">Perguntas</a></li>
+      </ul>
+      <a href="tel:+351966726328" class="btn-nav">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" /></svg>
+        Ligar agora
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="plus" style="left:8%; top:22%; font-size:24px;">+</span>
+    <span class="plus" style="right:10%; top:16%; font-size:20px;">+</span>
+    <span class="plus" style="left:16%; bottom:14%; font-size:18px;">+</span>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Início</a><span class="sep">›</span>
+        <a href="index.html#servicos">Serviços</a><span class="sep">›</span>
+        <span>Abertura de Portas Urgente</span>
+      </nav>
+      <div class="hero-inner">
+        <span class="pill">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z" /></svg>
+          Disponível 24H — 7 dias por semana
+        </span>
+        <h1>
+          Abertura de Portas Urgente
+          <em>em Lisboa, Arredores e Margem Sul</em>
+        </h1>
+        <p class="hero-sub">Se ficou fechado fora de casa, do escritório ou da viatura, ligue-nos agora. Somos uma equipa de chaveiros à distância de uma chamada, trabalhamos 24 horas por dia, 7 dias por semana. A sua emergência é a nossa urgência.</p>
+        <div class="hero-ctas">
+          <a href="tel:+351966726328" class="btn-primary">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" /></svg>
+            Ligar Agora — É Urgente
+          </a>
+          <a href="#como" class="btn-ghost">Como Funciona</a>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">24h</div>
+          <div class="hero-stat-label">Todos os dias, incluindo feriados</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="block how" id="como">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Processo</span>
+        <h2>Como Funciona a Abertura de Portas</h2>
+        <p>Simples, rápido e sem surpresas. Em quatro passos do telefonema à porta aberta.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Liga para nós</h3>
+          <p>Atendemos 24 horas. Diga a morada e o tipo de porta — damos orçamento imediato.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Confirmamos o orçamento</h3>
+          <p>Preço fixo antes de sair. Aceita? O técnico parte para a sua localização.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Técnico a caminho</h3>
+          <p>Técnico equipado com as ferramentas adequadas ao tipo de fechadura.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h3>Porta aberta</h3>
+          <p>Método adequado a cada fechadura. Pagamento só depois do trabalho feito.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPOS DE PORTA -->
+  <section class="block" id="tipos">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Especialização</span>
+        <h2>Que Tipos de Porta Abrimos</h2>
+        <p>Qualquer tipo de fechadura, em qualquer situação.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" /></svg>
+          </div>
+          <h3>Portas de Habitação</h3>
+          <p>Apartamentos, moradias, quartos. Fechaduras Yale, Mul-T-Lock, ASSA ABLOY e todas as marcas do mercado português.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z" /></svg>
+          </div>
+          <h3>Estabelecimentos Comerciais</h3>
+          <p>Escritórios, lojas, armazéns. Portas metálicas, sistemas de segurança reforçada e fechaduras anti-arrombamento.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z" /></svg>
+          </div>
+          <h3>Viaturas</h3>
+          <p>Automóveis, carrinhas, motos. Abrimos com o cuidado que cada modelo exige, protegendo pintura e mecanismos de fecho.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" /></svg>
+          </div>
+          <h3>Chave Partida no Interior</h3>
+          <p>Extração de fragmento de chave, procurando preservar o cilindro. Quando não é viável, explicamos as opções antes de avançar.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" /></svg>
+          </div>
+          <h3>Fechaduras Multipontos</h3>
+          <p>Fechaduras com múltiplos pontos de fecho que requerem ferramentas e técnica específicas para abertura segura.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 13v-2h10v2h-3v6h-4v-6H7zM3 21V9l9-7 9 7v12h-6v-2h4V9.99l-7-5.44-7 5.44V19h4v2H3z" /></svg>
+          </div>
+          <h3>Alojamento Local</h3>
+          <p>Proprietários de Airbnb e alojamento local. Serviço prioritário para situações de hóspede sem acesso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block faq" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Perguntas Frequentes</span>
+        <h2>Dúvidas sobre Abertura de Portas</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item open">
+          <button class="faq-q">
+            Em que zonas fazem abertura de portas?
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg>
+          </button>
+          <div class="faq-a">Cobrimos Lisboa, arredores e toda a Margem Sul, 24 horas por dia, 7 dias por semana. Ao ligar, confirmamos que chegamos à sua morada e tratamos do pedido de imediato.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            Como funciona o orçamento para abertura de portas?
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg>
+          </button>
+          <div class="faq-a">Damos um preço fixo por telefone, antes de o técnico sair, com base na morada e no tipo de porta e fechadura. Não há custo de chamada e o pagamento é feito apenas depois do trabalho concluído. Emitimos sempre fatura com NIF.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            A abertura danifica a fechadura?
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg>
+          </button>
+          <div class="faq-a">O técnico tenta sempre o método menos invasivo primeiro. Conseguir abrir sem danos depende do tipo e do estado da fechadura, e essa avaliação só pode ser feita no local. Se for necessário substituir a fechadura, é sempre comunicado e orçamentado antes de avançar.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            Abrem portas ao fim de semana e feriados?
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg>
+          </button>
+          <div class="faq-a">Sim. O serviço está disponível 24 horas por dia, 7 dias por semana, incluindo feriados. As deslocações noturnas e de fim de semana são efetuadas com a mesma rapidez.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            Precisam de identificação para abrir a porta?
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg>
+          </button>
+          <div class="faq-a">Sim, por razões de segurança e legalidade, pedimos sempre identificação (CC ou passaporte) e pode ser pedida prova de residência (fatura, contrato de arrendamento). Este procedimento protege-o a si e a terceiros.</div>
+        </div>
+      </div>
+      <div class="faq-more">
+        <a href="index.html#faq" class="btn-outline-rose">Ver todas as perguntas</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="container">
+      <div class="cta-inner">
+        <div>
+          <h2>Está Fechado Fora de Casa?</h2>
+          <p>Ligue agora. Chegamos. Disponível 24h.</p>
+        </div>
+        <a href="tel:+351966726328" class="btn-white">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" /></svg>
+          Ligar — +351 966 726 328
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">
+            <svg viewBox="0 0 50 40" width="44" height="35" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 5,24 L 25,6 L 45,24 V 38 H 5 Z" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round" />
+              <g transform="translate(10, 24)">
+                <rect x="4" y="-2" width="28" height="4" fill="#FFFFFF" rx="1" />
+                <rect x="22" y="2" width="3" height="5" fill="#FFFFFF" rx="0.5" />
+                <rect x="27" y="2" width="3" height="3" fill="#FFFFFF" rx="0.5" />
+              </g>
+              <circle cx="14" cy="24" r="9" fill="#FFFFFF" />
+              <circle cx="14" cy="24" r="6.5" fill="#5E7C7B" />
+              <text x="14" y="26.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="8" fill="#FFF" text-anchor="middle" letter-spacing="0.3">24H</text>
+            </svg>
+            <span style="display:flex; flex-direction:column; line-height:1;">
+              <span class="b1">CHAVEIRO</span>
+              <span class="b2">SENA</span>
+            </span>
+          </div>
+          <p class="footer-desc">Serviço de chaveiro profissional em Lisboa, arredores e Margem Sul. Disponível 24 horas.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Serviços</div>
+          <ul class="footer-links">
+            <li><a href="abertura-de-portas.html">Abertura de Portas</a></li>
+            <li><a href="index.html#servicos">Troca de Fechadura</a></li>
+            <li><a href="index.html#cobertura">Chaveiro Perto de Mim</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Empresa</div>
+          <ul class="footer-links">
+            <li><a href="index.html#sobre">Sobre Nós</a></li>
+            <li><a href="index.html#avaliacoes">Avaliações</a></li>
+            <li><a href="index.html#orcamento">Contacto</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contacto 24H</div>
+          <div class="footer-contacts">
+            <div>+351 966 726 328</div>
+            <div>Lisboa, arredores e Margem Sul</div>
+            <div>geral@chaveirosena.com</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Estratégia Simplificada LDA. NIPC: 519345584. Todos os direitos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/351966726328" class="whatsapp-btn" title="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+
+</html>
