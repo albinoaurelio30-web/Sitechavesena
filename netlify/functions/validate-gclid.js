@@ -1,5 +1,8 @@
 const { createClient } = require('@supabase/supabase-js');
 
+// Domínio deste site — usado para segmentar o anti-fraude por conta Ads.
+const SITE_DOMAIN = 'chaveirosena.com';
+
 exports.handler = async (event) => {
   const cors = {
     'Access-Control-Allow-Origin': 'https://chaveirosena.com',
@@ -79,7 +82,8 @@ exports.handler = async (event) => {
         ip,
         user_agent: ua,
         is_replay: true,
-        original_ip: existing[0].ip
+        original_ip: existing[0].ip,
+        domain: SITE_DOMAIN
       });
 
       return {
@@ -95,7 +99,8 @@ exports.handler = async (event) => {
       ip,
       user_agent: ua,
       is_replay: false,
-      original_ip: null
+      original_ip: null,
+      domain: SITE_DOMAIN
     });
 
     return {
