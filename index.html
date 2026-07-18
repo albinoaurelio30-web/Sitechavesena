@@ -375,11 +375,15 @@
     /* ── hero-behind-nav: o fundo do hero estende-se atras do header ── */
     .hero { margin-top: -74px; padding-top: 138px; }
     @media (max-width: 768px) { .hero { padding-top: 122px; } }
-      /* ── HERO FULLSCREEN: ocupa a tela toda (foco na mensagem, mobile incluido) ── */
-    .hero { min-height: 100vh; min-height: 100dvh; display: grid; align-content: center; }
-      /* ── HERO CONTENT TOP: conteudo do hero junto ao header (nao centrado) ── */
-    .hero { align-content: start; padding-top: 100px; }
-    @media (max-width: 768px) { .hero { padding-top: 90px; } }
+      /* ── HERO SPACING (ref: chaveiroemergencial) — enche a tela, conteudo ancorado no topo ── */
+    .hero { min-height: 100vh; min-height: 100dvh; display: grid; align-content: start; padding-top: 168px; padding-bottom: 6rem; }
+    @media (max-width: 768px) { .hero { padding-top: 124px; padding-bottom: 3rem; } }
+      /* ── HERO STATS (ref emergencial): faixa de indicadores que equilibra/enche ── */
+    .hero-stats { display: flex; align-items: flex-start; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.12); }
+    .hero-stat-item { display: flex; flex-direction: column; gap: 4px; }
+    .hs-num { font-size: 26px; font-weight: 800; color: #ff5470; line-height: 1; }
+    .hs-label { font-size: 12px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.06em; }
+    @media (max-width: 768px) { .hero-stats { gap: 18px; margin-top: 32px; } .hs-num { font-size: 22px; } .hs-label { font-size: 11px; } }
   </style>
   <script>
   (function () {
@@ -497,6 +501,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </span>
             Falar por WhatsApp
           </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat-item"><span class="hs-num">24/7</span><span class="hs-label">Sempre disponível</span></div>
+          <div class="hero-stat-item"><span class="hs-num">18</span><span class="hs-label">Concelhos cobertos</span></div>
+          <div class="hero-stat-item"><span class="hs-num">4.9★</span><span class="hs-label">+180 avaliações Google</span></div>
         </div>
       </div>
     </div>
