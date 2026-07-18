@@ -377,6 +377,9 @@
     @media (max-width: 768px) { .hero { padding-top: 122px; } }
       /* ── HERO FULLSCREEN: ocupa a tela toda (foco na mensagem, mobile incluido) ── */
     .hero { min-height: 100vh; min-height: 100dvh; display: grid; align-content: center; }
+      /* ── HERO CONTENT TOP: conteudo do hero junto ao header (nao centrado) ── */
+    .hero { align-content: start; padding-top: 100px; }
+    @media (max-width: 768px) { .hero { padding-top: 90px; } }
   </style>
 <script>
   (function () {
