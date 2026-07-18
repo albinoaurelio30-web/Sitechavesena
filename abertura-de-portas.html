@@ -199,6 +199,36 @@
       .btn-nav { display: none; }
       .nav-links { display: none; }
     }
+      /* ── CTA PULSE (emergência) ── */
+    @keyframes ctaPulse { 0% { box-shadow: 0 0 0 0 rgba(225,29,72,.5); } 70% { box-shadow: 0 0 0 16px rgba(225,29,72,0); } 100% { box-shadow: 0 0 0 0 rgba(225,29,72,0); } }
+    @keyframes ctaPulseW { 0% { box-shadow: 0 0 0 0 rgba(255,255,255,.55); } 70% { box-shadow: 0 0 0 16px rgba(255,255,255,0); } 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); } }
+    .btn-primary { animation: ctaPulse 2.2s ease-out infinite; }
+    .btn-white { animation: ctaPulseW 2.2s ease-out infinite; }
+    .btn-primary:hover, .btn-white:hover { animation-play-state: paused; }
+    @media (prefers-reduced-motion: reduce) { .btn-primary, .btn-white { animation: none; } }
+      /* ── HERO ESCURO (emergência) ── */
+    .hero { background: radial-gradient(120% 90% at 50% 0%, #23282c 0%, #16191c 55%, #0e1012 100%); }
+    .hero h1 { color: #ffffff; }
+    .hero h1 em { color: #ff5470; }
+    .hero-sub { color: rgba(255,255,255,0.74); }
+    .hero-sub strong { color: #ffffff; }
+    .hero .pill { background: rgba(225,29,72,0.18); color: #ff7089; }
+    .hero .btn-ghost { color: #ffffff; }
+    .hero .plus { color: rgba(255,255,255,0.07); }
+    .hero-stat-num { color: #ff5470; }
+    .hero-stat-label { color: rgba(255,255,255,0.6); }
+    /* ── HEADER ADAPTATIVO: sobre o hero, o header assume o fundo do hero ── */
+    .nav { transition: background .3s ease, border-color .3s ease, backdrop-filter .3s ease; }
+    .nav.nav--over-hero { background: transparent; backdrop-filter: none; border-bottom-color: transparent; }
+    .nav.nav--over-hero .brand-text .b1 { color: #ffffff; }
+    .nav.nav--over-hero .brand-text .b2 { color: rgba(255,255,255,0.72); }
+    .nav.nav--over-hero .nav-links a { color: rgba(255,255,255,0.85); }
+    .nav.nav--over-hero .nav-links a:hover { color: #ffffff; }
+    .nav.nav--over-hero .nav-phone-icon { color: #ffffff; }
+    .nav.nav--over-hero .menu-btn { color: #ffffff; }
+    /* ── hero-behind-nav: o fundo do hero estende-se atras do header ── */
+    .hero { margin-top: -74px; padding-top: 138px; }
+    @media (max-width: 768px) { .hero { padding-top: 122px; } }
   </style>
   <script>
   (function () {
@@ -259,7 +289,7 @@
         <li><a href="/chaveiro-automovel.html">Automóvel</a></li>
         <li><a href="/contacto.html">Contacto</a></li>
       </ul>
-      <a href="tel:+351966726328" class="nav-phone-icon" aria-label="Ligar agora"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></a><a href="tel:+351966726328" class="btn-nav">
+      <a href="tel:+351912756337" class="nav-phone-icon" aria-label="Ligar agora"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></a><a href="tel:+351912756337" class="btn-nav">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" /></svg>
         Ligar agora
       </a><button class="menu-btn" aria-label="Abrir menu" onclick="document.getElementById('mobileMenu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
@@ -271,7 +301,7 @@
     <a href="/chaveiro-24-horas.html">Chaveiro 24h</a>
     <a href="/chaveiro-automovel.html">Automóvel</a>
     <a href="/contacto.html">Contacto</a>
-    <a href="tel:+351966726328" class="btn-primary">Ligar agora — 24h</a>
+    <a href="tel:+351912756337" class="btn-primary">Ligar agora — 24h</a>
   </div>
 
   <!-- HERO -->
@@ -296,7 +326,7 @@
         </h1>
         <p class="hero-sub">Perdeu a chave, partiu na fechadura ou fechou o carro? Fique calmo — <strong>chegamos rápido à sua zona</strong>. Chaveiros à distância de uma chamada, 24h/7 dias.</p>
         <div class="hero-ctas">
-          <a href="tel:+351966726328" class="btn-primary">
+          <a href="tel:+351912756337" class="btn-primary">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" /></svg>
             Liga Para Nós Agora — Estamos a Distância de uma Chamada
           </a>
@@ -456,9 +486,9 @@
           <h2>Está Fechado Fora de Casa?</h2>
           <p>Ligue agora. Chegamos. Disponível 24h.</p>
         </div>
-        <a href="tel:+351966726328" class="btn-white">
+        <a href="tel:+351912756337" class="btn-white">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" /></svg>
-          Ligar — +351 966 726 328
+          Ligar — +351 912 756 337
         </a>
       </div>
     </div>
@@ -511,7 +541,7 @@
         <div>
           <div class="footer-col-title">Contacto 24H</div>
           <div class="footer-contacts">
-            <div>+351 966 726 328</div>
+            <div>+351 912 756 337</div>
             <div>Lisboa, arredores e Margem Sul</div>
             <div>geral@chaveirosena.com</div>
           </div>
@@ -539,6 +569,21 @@
         if (!isOpen) item.classList.add('open');
       });
     });
+  </script>
+  <script>
+    (function () {
+      var nav = document.querySelector('.nav');
+      var hero = document.querySelector('.hero');
+      if (!nav || !hero) return;
+      function upd() {
+        var heroBottom = hero.offsetTop + hero.offsetHeight;
+        var over = (window.scrollY + nav.offsetHeight) < heroBottom;
+        nav.classList.toggle('nav--over-hero', over);
+      }
+      upd();
+      window.addEventListener('scroll', upd, { passive: true });
+      window.addEventListener('resize', upd);
+    })();
   </script>
 </body>
 
