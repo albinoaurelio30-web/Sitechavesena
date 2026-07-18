@@ -229,6 +229,8 @@
     /* ── hero-behind-nav: o fundo do hero estende-se atras do header ── */
     .hero { margin-top: -74px; padding-top: 138px; }
     @media (max-width: 768px) { .hero { padding-top: 122px; } }
+      /* ── HERO FULLSCREEN: ocupa a tela toda (foco na mensagem, mobile incluido) ── */
+    .hero { min-height: 100vh; min-height: 100dvh; display: grid; align-content: center; }
   </style>
   <script>
   (function () {
