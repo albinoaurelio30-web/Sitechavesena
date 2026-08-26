@@ -4,3 +4,9 @@
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
+
+# Manifest — o Netlify nao conhece a extensao .webmanifest e serve como octet-stream
+[[headers]]
+  for = "/site.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json; charset=utf-8"
