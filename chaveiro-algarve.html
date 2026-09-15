@@ -647,5 +647,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     })();
   </script>
 
+<script>
+// ---------------------------------------------------------------------------
+// Registo de cliques no botao "Ligar" (links tel:) — 2026-09-15
+// Alimenta a whitelist do anti-fraude: um IP que ja ligou e gente, e nunca deve
+// ser bloqueado. Sem isto nao ha como validar a regra que bloqueia IPs, porque
+// as conversoes sao chamadas medidas no Google Ads e nunca trazem IP.
+// Backend: netlify/functions/log-call.js -> tabela call_clicks (Supabase).
+// ---------------------------------------------------------------------------
+(function () {
+  var KEY = 'cs_gclid';
+
+  // O gclid vem no URL da aterragem, mas o clique em "Ligar" pode acontecer
+  // paginas a frente — por isso guarda-se na sessao.
+  try {
+    var g = new URLSearchParams(window.location.search).get('gclid');
+    if (g) sessionStorage.setItem(KEY, g);
+  } catch (e) {}
+
+  function registarChamada() {
+    var gclid = null;
+    try { gclid = sessionStorage.getItem(KEY); } catch (e) {}
+    var payload = JSON.stringify({ gclid: gclid, page: window.location.pathname });
+    var url = '/.netlify/functions/log-call';
+
+    // sendBeacon sobrevive a saida da pagina (abrir o marcador do telemovel).
+    try {
+      if (navigator.sendBeacon &&
+          navigator.sendBeacon(url, new Blob([payload], { type: 'application/json' }))) {
+        return;
+      }
+    } catch (e) {}
+
+    // Plano B para browsers sem sendBeacon.
+    try {
+      fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload,
+        keepalive: true
+      }).catch(function () {});
+    } catch (e) {}
+  }
+
+  // Captura para correr antes de qualquer handler que trave a propagacao.
+  document.addEventListener('click', function (ev) {
+    var alvo = ev.target;
+    if (!alvo || typeof alvo.closest !== 'function') return;
+    if (alvo.closest('a[href^="tel:"]')) registarChamada();
+  }, true);
+})();
+</script>
 </body>
 </html>
