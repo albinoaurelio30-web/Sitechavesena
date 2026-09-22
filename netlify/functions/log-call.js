@@ -30,6 +30,7 @@ exports.handler = async (event) => {
 
   let gclid = null;
   let page = null;
+  let deviceId = null;
   try {
     const body = JSON.parse(event.body || '{}');
     if (typeof body.gclid === 'string' && body.gclid.length >= 10 && body.gclid.length <= 200) {
@@ -38,8 +39,19 @@ exports.handler = async (event) => {
     if (typeof body.page === 'string' && body.page.length <= 300) {
       page = body.page;
     }
+    if (typeof body.device_id === 'string' && body.device_id.length >= 8 && body.device_id.length <= 100) {
+      deviceId = body.device_id;
+    }
   } catch {
     // corpo invalido nao impede o registo do IP
+  }
+
+  // Plano B: se o corpo nao trouxe device_id, tenta o cookie que o main.js espelha.
+  if (!deviceId) {
+    try {
+      const m = (event.headers.cookie || '').match(/(?:^|;\s*)cs_device=([^;]+)/);
+      if (m && m[1].length >= 8 && m[1].length <= 100) deviceId = decodeURIComponent(m[1]);
+    } catch {}
   }
 
   const ip =
@@ -54,6 +66,7 @@ exports.handler = async (event) => {
       gclid,
       ip,
       user_agent: ua,
+      device_id: deviceId,
       domain: SITE_DOMAIN,
       page
     });

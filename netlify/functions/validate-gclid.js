@@ -49,6 +49,15 @@ exports.handler = async (event) => {
     'unknown';
   const ua = event.headers['user-agent'] || '';
 
+  // device_id vem do cookie que o main.js espelha do localStorage. Num visitante
+  // NOVO ainda nao existe (este snippet corre inline no <head>, antes do main.js)
+  // — nesse caso fica nulo e a link-device faz o backfill por gclid.
+  let deviceId = null;
+  try {
+    const m = (event.headers.cookie || '').match(/(?:^|;\s*)cs_device=([^;]+)/);
+    if (m && m[1].length >= 8 && m[1].length <= 100) deviceId = decodeURIComponent(m[1]);
+  } catch {}
+
   let sb;
   try {
     sb = createClient(
@@ -83,6 +92,7 @@ exports.handler = async (event) => {
         user_agent: ua,
         is_replay: true,
         original_ip: existing[0].ip,
+        device_id: deviceId,
         domain: SITE_DOMAIN
       });
 
@@ -100,6 +110,7 @@ exports.handler = async (event) => {
       user_agent: ua,
       is_replay: false,
       original_ip: null,
+      device_id: deviceId,
       domain: SITE_DOMAIN
     });
 

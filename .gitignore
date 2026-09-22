@@ -1,0 +1,3 @@
+
+# Dependencias locais (resolvidas no build do Netlify)
+node_modules
