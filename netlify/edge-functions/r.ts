@@ -152,6 +152,10 @@ export default async (request: Request, context: any): Promise<Response> => {
       loc_nome: null, // resolvido FORA do caminho do clique, a partir da geo_target
       targetid: corta(p.get("tgt")),
       random: corta(p.get("rnd")),
+      // query string CRUA, sem interpretacao. Existe para responder ao misterio
+      // do {lpurl}: com parallel tracking o Google nao parece substitui-lo dentro
+      // de um parametro, e sem o cru nao se sabe se chega vazio, literal ou roto.
+      raw_query: url.search ? url.search.slice(0, 2000) : null,
       landing_url: location === HOMEPAGE ? null : corta(location),
       domain: SITE_DOMAIN,
     };
