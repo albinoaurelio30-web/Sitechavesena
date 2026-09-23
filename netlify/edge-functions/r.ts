@@ -82,6 +82,22 @@ function env(nome: string): string | undefined {
   return undefined;
 }
 
+function cabecalhos(request: Request): Record<string, string> {
+  const querer = [
+    "sec-purpose", "purpose", "x-moz",
+    "sec-fetch-mode", "sec-fetch-dest", "sec-fetch-site",
+    "referer", "accept", "x-nf-request-id",
+  ];
+  const out: Record<string, string> = {};
+  try {
+    for (const h of querer) {
+      const v = request.headers.get(h);
+      if (v) out[h] = v.slice(0, 200);
+    }
+  } catch {}
+  return out;
+}
+
 async function gravar(linha: Record<string, unknown>): Promise<void> {
   try {
     const base = env("SUPABASE_URL");
@@ -109,12 +125,25 @@ export default async (request: Request, context: any): Promise<Response> => {
 
   let location = HOMEPAGE;
   let linha: Record<string, unknown> | null = null;
+  let lpurlEstado: string = "ausente";
 
   // --- 1. construir o destino (nunca lanca para fora) ---
   try {
     const url = new URL(request.url);
     const p = url.searchParams;
-    const alvo = destinoValido(descodificarLpurl(p.get("u")));
+    const uBruto = p.get("u");
+    const alvo = destinoValido(descodificarLpurl(uBruto));
+
+    // o que aconteceu ao {lpurl}. O registo nao deve AFIRMAR um destino que
+    // nao conhece: se o parametro nao chegou, landing_url fica nulo e este
+    // campo diz porque. O redirect continua a ir para a homepage.
+    if (alvo) lpurlEstado = "ok";
+    else if (!uBruto || !uBruto.trim()) lpurlEstado = "ausente";
+    else {
+      let parseou = false;
+      try { new URL(descodificarLpurl(uBruto) as string); parseou = true; } catch {}
+      lpurlEstado = parseou ? "fora_do_dominio" : "invalido";
+    }
 
     if (alvo) {
       // O gclid tem de seguir para a landing page, senao o site perde-o e a
@@ -156,7 +185,12 @@ export default async (request: Request, context: any): Promise<Response> => {
       // do {lpurl}: com parallel tracking o Google nao parece substitui-lo dentro
       // de um parametro, e sem o cru nao se sabe se chega vazio, literal ou roto.
       raw_query: url.search ? url.search.slice(0, 2000) : null,
-      landing_url: location === HOMEPAGE ? null : corta(location),
+      lpurl_estado: lpurlEstado,
+      // so os cabecalhos que distinguem um pedido real de uma especulacao do
+      // browser. Existe para identificar a causa do duplo disparo do /r.
+      req_headers: cabecalhos(request),
+      // NAO se inventa destino: so se preenche quando foi mesmo reconstruido
+      landing_url: lpurlEstado === "ok" ? corta(location) : null,
       domain: SITE_DOMAIN,
     };
   } catch {
