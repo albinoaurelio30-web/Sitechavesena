@@ -57,14 +57,30 @@ function descodificarLpurl(bruto: string | null): string | null {
   return v;
 }
 
-function destinoValido(u: string | null): URL | null {
+// O redirecionador de cliques da Google. Com parallel tracking, o {lpurl} NAO
+// aponta para a nossa landing page: aponta para https://www.google.com/asnc/<token>/,
+// que e' a Google a medir o clique antes de encaminhar para o destino final.
+// Mandar o utilizador para outro sitio que nao o {lpurl} e' quebrar o destino.
+// Aceita-se, mas so o host da Google E so o caminho /asnc/ — continua sem servir
+// de relay de phishing para um dominio qualquer.
+const GOOGLE_HOST = /^(www\.)?google\.[a-z]{2,3}(\.[a-z]{2})?$/;
+
+function destinoValido(u: string | null): { url: URL; via: string } | null {
   if (!u) return null;
   try {
     const url = new URL(u);
     if (url.protocol !== "https:" && url.protocol !== "http:") return null;
-    if (!HOSTS_PERMITIDOS.has(url.hostname.toLowerCase())) return null;
-    url.protocol = "https:";
-    return url;
+    const host = url.hostname.toLowerCase();
+
+    if (HOSTS_PERMITIDOS.has(host)) {
+      url.protocol = "https:";
+      return { url, via: "ok" };
+    }
+    if (GOOGLE_HOST.test(host) && url.pathname.startsWith("/asnc/")) {
+      url.protocol = "https:";
+      return { url, via: "ok_redirector" };
+    }
+    return null;
   } catch {
     return null;
   }
@@ -132,12 +148,13 @@ export default async (request: Request, context: any): Promise<Response> => {
     const url = new URL(request.url);
     const p = url.searchParams;
     const uBruto = p.get("u");
-    const alvo = destinoValido(descodificarLpurl(uBruto));
+    const res = destinoValido(descodificarLpurl(uBruto));
+    const alvo = res ? res.url : null;
 
     // o que aconteceu ao {lpurl}. O registo nao deve AFIRMAR um destino que
     // nao conhece: se o parametro nao chegou, landing_url fica nulo e este
     // campo diz porque. O redirect continua a ir para a homepage.
-    if (alvo) lpurlEstado = "ok";
+    if (res) lpurlEstado = res.via;
     else if (!uBruto || !uBruto.trim()) lpurlEstado = "ausente";
     else {
       let parseou = false;
@@ -190,7 +207,7 @@ export default async (request: Request, context: any): Promise<Response> => {
       // browser. Existe para identificar a causa do duplo disparo do /r.
       req_headers: cabecalhos(request),
       // NAO se inventa destino: so se preenche quando foi mesmo reconstruido
-      landing_url: lpurlEstado === "ok" ? corta(location) : null,
+      landing_url: (lpurlEstado === "ok" || lpurlEstado === "ok_redirector") ? corta(location) : null,
       domain: SITE_DOMAIN,
     };
   } catch {
